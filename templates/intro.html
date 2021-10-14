@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/yfcss.css')}}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+        <style>
+            .main{
+                width:60%;
+                position:relative;
+                line-height:250%;
+                left:20%;
+                top:50%;
+                padding-bottom:200px;
+            }
+            .abs{
+                font-family: 'Trebuchet MS', sans-serif;
+                padding-left:20px;
+                margin:20px;
+                font-size:150%;
+                text-indent:2em;
+                border-left: 10px solid #175e54;
+                margin-bottom:190px;
+            }
+            .abs:first-letter{
+				font-size:72px;
+				color:#175e54;
+                
+			}
+        </style>
+
+    </head>
+    <body>
+        <div class='headerdiv' >
+        <a href='http://njcu.edu'>
+            <img class='header' alt='NJCU logo' src='static/images/njcuW.png'>
+        </a>
+        </div>
+        <div class='topnav'>
+            <a class='active' href='{{ url_for('intro')}}'>Introduction</a>
+            <a href='{{ url_for('index')}}'>Search</a>
+            <a href='{{ url_for('contact')}}'>Paper</a>
+            <a href='{{ url_for('about')}}'>About us</a>
+        </div>
+
+        <h2 style='font-family: "Sofia", sans-serif; text-align: center; font-size:50px;'>Introduction</h2>
+        <hr>
+
+        <div class='main'>
+        <img src='static/images/data.png'>
+        <p class='abs'>
+            This paper researches if there is a better way to cluster stocks into sectors then by company descriptions. By performing KMeans clustering algorithm on the QQQ exchange-traded fund, it measures the correlations between the predicted sectors and their stocks vs. the original sectors and their stocks using visuals created by Python’s Seaborn library. If successful, this can improve the returns of popular funds and help better classify companies who are invested in multiple industries. 
+        </p>
+        </div>
+
+        <div class='btm'>
+            
+            <img src='static/images/njcuG.png' alt='njcuLogo'/>
+        </div>
+
+    </body>
+</html>

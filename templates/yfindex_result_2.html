@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/yfcss.css')}}">
+        <style>
+        body{
+            background_color:#81e8ff;
+            text-align="center";
+
+        }
+        .ticker{
+            display: block;
+            margin: 0 auto;
+        }
+        .moreInfo{
+            border:2px solid #ddd;
+            
+        }
+        .date{
+                margin:20px;
+                margin-top:0px;
+                padding-top:0px;
+            }
+            .prmopt{
+                margin:20px;
+            }
+            .graphtype{
+                margin:20px;
+            }
+            .QQQ{
+                margin:20px;
+            }
+            .tooltip{
+                position: relative;
+                display:inline-block;
+                padding-left:20px;
+            }
+            .tooltip .tooltiptext{
+                display:inline-block;
+                visibility:hidden;
+                width:200px;
+                background-color:#175e54;
+                color:#fff;
+                text-align:center;
+                border-radius:6px;
+
+                postion:absolute;
+                z-index:1;
+            }
+            .tooltip:hover .tooltiptext{
+                display:block;
+                visibility:visible;
+            }
+
+            .sbar{
+                text-align:left;
+                padding-right:100px;
+            }
+
+            .rbar{
+                padding-left:100px;
+            }
+            
+            .timeitv button{
+                background-color: #175e54; 
+                border: 1px solid green;
+                color: white; 
+                padding: 10px 24px; 
+                cursor: pointer;
+                height:auto;
+                width:12%;
+            }
+            .timeitv button:not(:last-child) {
+                border-right: none; 
+            }
+            .timeitv button:hover {
+            background-color: #3e8e41;
+            }
+
+            /* Style the tab */
+            .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            }
+
+            /* Style the buttons that are used to open the tab content */
+            .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+            background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+            background-color: #ccc;
+            }
+
+            /* Style the tab content */
+            .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            }
+
+            .tabcontent {
+            animation: fadeEffect 1s; /* Fading effect takes 1 second */
+            }
+
+            /* Go from zero to full opacity */
+            @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class='headerdiv' >
+            <a href='http://njcu.edu'>
+                <img class='header' alt='NJCU logo' src='static/images/njcuW.png'>
+            </a>
+        </div>
+        <div class='topnav'>
+            <a href='{{ url_for('intro')}}'>Introduction</a>
+            <a href='{{ url_for('index')}}'>Search</a>
+            <a href='{{ url_for('contact')}}'>Paper</a>
+            <a href='{{ url_for('about')}}'>About us</a>
+        </div>
+
+    <table>
+    <tr>
+    <th class='sbar' VALIGN=TOP> 
+        <form {{url_for("index")}} method='POST'>
+            <h4 style='margin-left:10px;'>choose options for your ticker: </h4>
+            <div class='date'>
+                <label for="start">start date:</label>
+                <input type='date' name='start' value="2020-01-01"/>
+                <label for="end">end date:</label>
+                <input type='date' name='end' value="2021-05-01"/>
+            </div>
+
+
+            <div class='prmopt'>
+                <label for="yValue">y value:</label>
+                <select name='yValue'>
+                <option value="High">High</option>
+                <option value="Low">Low</option>
+                <option value="Open">Open</option>
+                <option value="Close">Close</option>
+                <option value="Volume">Volume</option>
+                <option value="Adj Close">Adj Close</option>
+                <option value="Percent Change">Percent Change</option>
+                
+
+                </select>
+            </div>
+
+            <div class='graphtype'>
+                <label for="graphtype">graph type:</label>
+                <select name='graphtype'>
+                <option value="Area">Area</option>
+                <option value="Line">Line</option>
+                </select>
+            </div>
+
+            <div class='QQQ'>
+                <label for="QQQ">if you want to use all QQQ stock tickers:</label>
+                <br>
+                <select name='QQQ'>
+                <option value="QQQ">QQQ</option>
+                <option value="other" selected>other(enter yourself)</option>
+                </select>
+            </div>
+
+            <hr>
+            <div class='tooltip'>
+                <h4 style='padding:10px;'>please enter your ticker:</h4>
+                <span class="tooltiptext" style='padding:20px;'>you can enter one ticker like: <h4>GOOG</h4> or you can enter multiple tickers like: <h4>GOOG,AAPL,AA</h4></span>
+                
+            </div>
+            <div style='position:absolute; display:inline-block; padding-left:20px; padding-top:30px;'>
+                <input type="text" name='ticker'/>
+                <input type='submit' name='submit' value='submit'/>
+            </div>
+            <br>
+            {{noTicker}}
+        </form>
+        <hr>
+        <!--...........................................................................-->
+    </th>
+
+    <th class='rbar'>
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'graph')" id="defaultOpen">graph</button>
+            <button class="tablinks" onclick="openCity(event, 'box')">Box Plot</button>
+            <button class="tablinks" onclick="openCity(event, 'another')">another plot</button>
+        </div>
+
+        <div id="graph" class="tabcontent">
+            <div class='timeitv'>
+                <form {{ url_for("index") }} method='POST'>
+                    <input type='hidden' name = 'ticker' value={{ticker}}>
+                    <input type='hidden' name = 'testFunc' value={{testFunc}}>
+                    <input type='hidden' name = 'end' value={{end}}>
+                    <input type='hidden' name = 'yValue' value={{yValue}}>
+                    <input type='hidden' name = 'graphtype' value={{graphtype}}>
+                    <button name="timeitv" type="submit" value="3D">3D</button>
+                    <button name="timeitv" type="submit" value="1W">1W</button>
+                    <button name="timeitv" type="submit" value="1M">1M</button>
+                    <button name="timeitv" type="submit" value="3M">3M</button>
+                    <button name="timeitv" type="submit" value="6M">6M</button>
+                    <button name="timeitv" type="submit" value="1Y">1Y</button>
+                    <button name="timeitv" type="submit" value="3Y">3Y</button>
+                    <button name="timeitv" type="submit" value="5Y">5Y</button>
+                </form>
+            </div>
+            <object class='ticker' data='static/ticker/index.html' width='1024' height='900'></object>
+        
+            <span onclick="this.parentElement.style.display='none'">x</span>
+        </div>
+        
+
+        <div id="box" class="tabcontent">
+            <object class='ticker' data='static/ticker/boxPlot.html' width='1024' height='900'></object>
+        </div>
+
+        <div id="another" class="tabcontent">
+            <object class='ticker' data='static/images/testPic.png' width='1024' height='900'></object>
+        </div>
+    </th>
+    </tr>
+    </table>
+
+
+
+        <br><br>
+        <form>
+            <input type="submit" name='back' value="back"/>
+        </form>
+
+        <!--more information below-->
+        <div class='moreInfo'>
+            
+            <p>show more info</p>
+            <br>
+            show your ticker info here:
+            <br>
+            
+        </div>
+        <hr>
+
+        <!--bottom-->
+        <div class='btm'>
+            
+            <img src='static/images/njcuG.png' alt='njcuLogo'/>
+        </div>
+
+
+
+
+    
+    <script>
+        function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+        }
+        document.getElementById("defaultOpen").click();
+    </script>
+    </body>
+</html>

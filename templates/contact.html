@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/yfcss.css')}}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+        <style>
+            .Reference ul li{
+                list-style-type:none;
+            }
+
+            .sup ul li{
+                list-style-type:decimal;
+            }
+
+            p{
+                margin-left:10px;
+                font-size:16pt;
+                text-indent:2em;
+            } 
+
+            li{
+                font-size:13pt;
+            }  
+            div:not(.main):not(.topnav):not(.twopic){
+                border-left:3px solid rgba(23,94,84,0.95); 
+            }
+            .main{
+                width:60%;
+                position:relative;
+                left:23%;
+                top:50%;
+                margin-top:-50px;
+                margin-left:-100px;
+                padding-bottom:100px;
+            }
+            .picword{
+                font-style:italic;
+                font-weight:bold;
+            }
+
+            .abstract {
+                border-left:3px solid rgba(23,94,84,0.95);    
+            }
+            .intro{
+                border-left:3px solid rgba(23,94,84,0.95);   
+            }
+            .method{
+                border-left:3px solid rgba(23,94,84,0.95);   
+            }
+
+
+            
+            .intro img{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 80%;
+            }
+            
+            
+            .method img{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+            .method object{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+            }
+
+            .result img{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+            }
+
+            .followbar {
+                position: fixed;
+                right: 0;
+                top: 10%;
+                width: 8em;
+            }
+            
+
+        </style>
+
+        <script src="/jquery/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript">
+        function showOrHide(){
+            var div = $("#div1").get(0);
+            if(div.style.display == ""){
+                div.style.display = "none";
+            }else{
+                div.style.display = "";
+            }
+        }
+        </script>
+
+    </head>
+    <body>
+        <div class='headerdiv' >
+        <a href='http://njcu.edu'>
+            <img class='header' alt='NJCU logo' src='static/images/njcuW.png'>
+        </a>
+        </div>
+        <div class='topnav'>
+            <a href='{{ url_for('intro')}}'>Introduction</a>
+            <a href='{{ url_for('index')}}'>Search</a>
+            <a class='active' href='{{ url_for('contact')}}'>Paper</a>
+            <a href='{{ url_for('about')}}'>About us</a>
+        </div>
+
+        <h2 style='font-family: "Sofia", sans-serif; text-align: center; font-size:50px;'>paper</h2>
+        <hr>
+        <div class='main' style='padding-top:100px;'>
+            <h1 align='center'>Sector Regrouping for Invesco QQQ ETF based on K-Mean Clustering Algorithm</h1>
+            <h4 align='center'>Topu Saha <sup>1</sup>, Weikang Kong<sup>1</sup>, Nan Wang<sup>1*</sup></h4>
+            <h4 align='center'>(1) Department of Computer Science at New Jersey City University, Jersey City, NJ 07305
+            <br>* Corresponding Author
+            </h4>
+            <br>
+            <h2>Abstract</h2>
+            <div class='abstract'>
+                <p style='text-indent:2em;'>Invesco QQQ is an ETF based on the Nasdaq-100 index and is allocated to seven 
+                sectors based on the company’s nature. With the growth and expansion of the company businesses, 
+                the nature of the company and the performance of their stocks might be changed consistently. 
+                The goal is to re-cluster stocks from QQQ into sectors by the performance of their stocks using 
+                the K-Mean clustering algorithm on the holdings in the QQQ exchange-traded fund. The correlations 
+                between the predicted sectors and their stocks vs. the original sectors and their stocks will be compared, 
+                analyzed, and visualized using Python’s Pandas, Financial, Machine Learning, and visualization libraries. 
+                The results show that the stocks in the re-clustered sectors have higher correlations with each other than 
+                in the original sectors. The new sector will improve the returns of popular funds potentially and help better 
+                classify companies who are invested in multiple industries. 
+                </p>
+            </div>
+
+            <br>
+            <h2>Introduction </h2>
+            <div class='intro'>
+                <p style='text-indent:2em;'>Invesco QQQ is an exchange-traded fund based on the Nasdaq-100 index [1] which was incepted on March 10,
+                 1999. The fund consists of 100 of the largest domestic and international non-financial companies listed on
+                  the Nasdaq Stock Market based on market capitalization. The stocks in the fund are allocated to seven sectors,
+                   Information Technology, Communication Services, Consumer Discretionary, Health Care, Consumer Staple, Industrials,
+                    and Utilities based on the nature of the company business shown in Figure 1 [2]. 
+                </p>
+                <img src='static/images/picture/Original Sector Distrubtion.png' width='900'>
+                <p align='center' class='picword'>Figure 1. Original Sector Distrubtion</p>
+
+                <p style='text-indent:2em;'>However, the stock market can be extremely complex in terms of all the information given, such as the different prices and sectors each stock is classified as. In 2021, these sectors are getting more confusing as companies are evolving and are serving multiple industries. Looking at index and exchange-traded funds which are popularly traded due to these funds containing multiple stocks so the buyer’s money is not dependent on a single company. Popular funds containing more than 500 stocks helps investors diversify their money like in Vanguards VTI, VXUS, BND, and BNDX which are considered to have a broad diversification and are easy to manage [3]. However, in recent years, these funds introduce a growing number of technology sector stocks such as Amazon or Microsoft within their portfolio because of high returns [4]. For example, the QQQ is an exchange-traded fund that is majority made up of technology stocks and a lot of the gains it produces over the years are mainly because of the technology sector within the fund [2]. Forty-one stocks are classified under the Information Technology sector, and Consumer Discretionary, Communication Services, and Health Care are tied with fifteen stocks each in their respective sectors. (Found on code line ….) 
+                </p>
+                <br>
+                <img src='static/images/p2.png'>
+                <br>
+                <p style='text-indent:2em;'>Based on some funds similar to the QQQ which favors certain sectors, this raises the question: are the stocks classified correctly? Using Telsa as an example which is classified under Consumer Discretionary in the QQQ, Tesla can also be considered to be a part of the Information Technology sector because of the software they develop for their products. In other funds, they can classify Telsa into an automotive sector or an energy company. Point is, Tesla can fit into many sectors and more companies are in similar situations such as Apple and Facebook who are currently expanding into other industries. The goal of this research is to recluster these stocks in the QQQ fund not based on descriptions, but by performance. We hope to see our sectors have stocks that are more correlated with each other than the stocks in the original sectors in QQQ. By doing this, the hope is to better categorize stocks and create better performing index and exchange-traded funds in the future.
+                </p>
+            </div>
+            <br>
+            <h2>Methods </h2>
+            <div class='method'>
+                <p>The first step in our research was to get all the resources we needed to be downloaded onto the computer. We used Jupyter Notebook to write code and visualize the data [5], NumPy for their fast and versatile arrays data structure [6]. Pandas for their DataFrames and data organization features [7]. YFinance to pull financial information from [8]. A combination of Matplotlib [9], Seaborn [10], and Plotly [11] for data visualization. The use of HTML [12], CSS [13], and Python Flask [14] was used to create the website for this research as well.
+                </p>
+                <p>After all these technologies are successfully installed, the data retrieval and preprocessing of the data begins. A list of ticker symbols in the QQQ was processed using Pandas DataFrame to show each ticker symbol and the sector it was represented as in the QQQ fund. The list of tickers can be found in the supplementary section below this paper. We found that the database had an extra space next to each ticker symbol. For example, Facebook’s ticker symbol will be “FB “ so with a simple for loop that traversals through each ticker, we deleted that extra space and updated the ticker column. Next, we created a DataFrame with all the relevant history of each ticker by taking each individual ticker symbol and running it through the YFinances database to get its monthly history from the year 2015 to our current date. We noticed some null values were present so we ended up deleting them from the DataFrame.
+                </p>
+                <p>We next ran the closing prices of each ticker to generate a monthly percent change column within the DataFrame using the code below. 
+                </p>
+
+                <img src='static/images/p3.png' onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">
+                
+                
+                <a href="javascript:" style='margin-left:400px;' onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">click to show codes</a>
+                
+
+                <div class="block" id="fullContent" style="display:none;">
+                    <object data='static/ticker/kmeanCodes.html' width='1024' height='900' title='codes'></object>
+
+                </div>
+
+                <p>The code subtracts the current closing price by the next closing price after x amount of days and dividing it by the current closing price. This generates a percent change between the two dates of the stock. By inputting 1, 7, 30, and 365 in the days parameter, the method can get the daily, weekly, monthly, or yearly percent change. These numbers tell us how the performance of the stock changes as time goes on. After getting that number the code holds the information in an array data structure which is then inputted into a column in the DataFrame that holds the history of all the stocks in the QQQ fund. 
+                </p>
+                <p>Lastly, we mapped each of the seven sectors to a number ranging from zero to six. After the mapping the sectors were represented like this, 'Information Technology: 0,  'Consumer Discretionary': 1,  'Communication Services': 2,  'Consumer Staples': 3,  'Health Care': 4, 'Industrials': 5,  'Utilities': 6. This was done because the K-Means algorithm only understands numbers and not any other type of data. Then we create a pivot plot with the column being the monthly dates with the sector at the end and rows being the stocks. This has each row be a stock with all its information of monthly percent change and original sector. 
+                </p>
+                <p>The next part of the research was to run the k-means algorithm on the preprocessed data.  The k-means clustering method is an unsupervised machine learning algorithm that can be used to find clusters of data in a dataset [15]. It has the ability to identify clusters and uses a partitional clustering [15] approach meaning each stock can be only clustered in one sector and cannot overlap.  Because of its ability to identify clusters, it is perfect to identify its own sectors to compare against the original sectors in the QQQ fund. It will look through the percent change data and decide which stocks should be clustered together. K-means works by specifying the number of clusters, in this case, seven because we have seven different sectors. It will generate seven dots called centroids [15] randomly on a plane after plotting the information from the dataset. Based on the distance from the centroid, each stock will be clustered to one of the seven centroids. It keeps track of the mean of each centroid after the data is clustered and runs the analysis multiple times until the classifications do not change.
+                </p>
+                <p>After receiving the predicted sector information, it was inputted into the pivot plot as another column to be compared with the original sector. We first created a scatterplot to visualize the classification with the x-axis being percent change and the y-axis being volume. Second, we created a method that identified the sectors that were most related to each other by which ones had the most similar stocks. With that information, we created three heatmaps showcasing the correlation between the top three similar sectors. Finally, we created three Venn diagrams to showcase which tickers were similar and which were new from the predicted and original sectors.
+                </p>
+            </div>
+                
+            <br>
+            <h2>Results</h2>
+            <div class='result'>
+                <p>
+                    Our team build a local website for displaying our research results. We use flask web framework, a light web framework written in Python, to accomplish this work. Different from formal MVC(Model-view-controller) design pattern, our project simply use local storage to save each ticker name rather than using session or cookies, which save some time. We paid more attention to view and controller, which are website interface design and request/response processing—front-end (View) transfer data to back-end (controller), and back-end processes data.
+                </p>
+                <p>
+                This is our framework:
+                </p>
+                <div style='display:block;padding-left:10%'>
+                    ├── app <br>
+                    │ ├── nMainTest.py <br>
+                    │ ├── style <br>
+                    │ │ 	└── yfcss.css<br>
+                    │ ├── ticker <br>
+                    │ │ 	├── boxPlot.html <br>
+                    │ │ 	└── index.html    #ticker’s plot<br>
+                    │ ├── templates <br>
+                    │ │ 	├── about.html <br>
+                    │ │ 	├── contact.html     #paper web<br>
+                    │ │ 	├── intro.html<br>
+                    │ │ 	├── yfindex_result_2.html<br>
+                    │ │ 	└── yfIndex.html<br>
+                    │ └── images <br>
+                    │ &emsp;├── data.png<br>
+                    │ &emsp;├── me2.JPG <br>
+                    │ &emsp;├── njcuG.png <br>
+                    │ &emsp;├── njcuW.png	<br>
+                    │ &emsp;├── p1.png<br>
+                    │ &emsp;├── p2.png<br>
+                    │ &emsp;├── p3.png<br>
+                    │ &emsp;├── p4.png<br>
+                    │ &emsp;└── p5.png<br>
+                    <br>
+                </div>
+
+                <p>
+                These are website screemshots:
+                </p>
+                
+                <img src='static/images/web/w1.png'>
+                <img src='static/images/web/w2.png'>
+                <img src='static/images/web/w3.png'>
+                <img src='static/images/web/w4.png'>
+                <img src='static/images/web/w5.png'>
+                
+                <br><br><br><br><br><br>
+                <img style='margin-bottom:0px;padding-bottom:0px;' src='static/images/picture/Communication Services Heatplot.png'>
+                <p align='center' class='picword' style='margin-top:0;padding-top:0;'>Figure 2. Communication Services Heatplot</p>
+
+                <br><br><br><br><br><br>
+                <img style='margin-bottom:0px;padding-bottom:0px;' src='static/images/picture/Communication Services venn.png'>
+                <p align='center' class='picword' style='margin-top:0;padding-top:0;'>Figure 3. Communication Services venn</p>
+
+                <br><br><br><br><br><br>
+                <img style='margin-bottom:0px;padding-bottom:0px;' src='static/images/picture/Consumer Discretionary Heatmap.png'>
+                <p align='center' class='picword' style='margin-top:0;padding-top:0;'>Figure 4. Consumer Discretionary Heatmap</p>
+
+                <br><br><br><br><br><br>
+                <img style='margin-bottom:0px;padding-bottom:0px;' src='static/images/picture/Consumer Discretionary venn.png'>
+                <p align='center' class='picword' style='margin-top:0;padding-top:0;'>Figure 5. Consumer Discretionary venn</p>
+
+                <br><br><br><br><br><br>
+                <img style='margin-bottom:0px;padding-bottom:0px;' src='static/images/picture/Information Technology Heatmap.png'>
+                <p align='center' class='picword' style='margin-top:0;padding-top:0;'>Figure 6. Information Technology Heatmap</p>
+
+                <br><br><br><br><br><br>
+                <img style='margin-bottom:0px;padding-bottom:0px;' src='static/images/picture/Information Technology venn.png'>
+                <p align='center' class='picword' style='margin-top:0;padding-top:0;'>Figure 7. Information Technology venn </p>
+
+                <br><br><br><br><br><br>
+                <img style='margin-bottom:0px;padding-bottom:0px;' src='static/images/picture/Predicted Communication Services Heatmap.png'>
+                <p align='center' class='picword' style='margin-top:0;padding-top:0;'>Figure 8. Predicted Communication Services Heatmap</p>
+
+                <br><br><br><br><br><br>
+                <img style='margin-bottom:0px;padding-bottom:0px;' src='static/images/picture/Predicted Consumer Discretionary Heatmap.png'>
+                <p align='center' class='picword' style='margin-top:0;padding-top:0;'>Figure 9. Predicted Consumer Discretionary Heatmap</p>
+
+                <br><br><br><br><br><br>
+                <img style='margin-bottom:0px;padding-bottom:0px;' src='static/images/picture/Predicted Information Technology Heatmap.png'>
+                <p align='center' class='picword' style='margin-top:0;padding-top:0;'>Figure 10. Predicted Information Technology Heatmap</p>
+
+                <br><br><br><br><br><br>
+                <img style='margin-bottom:0px;padding-bottom:0px;' src='static/images/picture/Predicted Sector Distrubtion.png'>
+                <p align='center' class='picword' style='margin-top:0;padding-top:0;'>Figure 11. Predicted Sector Distrubtion</p>
+
+
+                
+
+
+                <br><br><br><br><br><br>
+                <div class='twopic' style='margin-left:10em;'>
+                <table>
+                    <tr>
+                        <th><h4 align='center'>Original Sector scatterplot: Percent Change v. Volume</h4></th>
+                        <th>&emsp;&emsp;&emsp;&emsp;</th>
+                        <th><h4 align='center'>Predicted Sector scatterplot: Percent Change v. Volume</h4></th>
+                    </tr>
+
+                    <tr>
+                        <th><img src='static/images/p4.png'></th>
+                        <th>&emsp;&emsp;&emsp;&emsp;</th>
+                        <th><img src='static/images/p5.png'> </th>
+                    </tr>
+
+                    <tr>
+                        <th colspan='2'><h5 align='left'>*Sectors are not directly related ex: Information Technology is not related to 0* </h5></th>
+                        <th>&emsp;&emsp;&emsp;&emsp;</th>
+                        <th></th>
+                    </tr>
+
+                </table>
+                </div>
+                
+            </div>
+
+            <br>
+            <h2>Conclusion</h2>
+            <div class='Conclusion'>
+                <p>In conclusion, our k-means algorithm was able to cluster the stocks in the QQQ fund differently than what it originally had. However, our visuals showed a slight difference in correlation between our predicted sectors and the original sectors. This slight difference is not enough to prove our original theory of the predicted sectors being better than the originals. When looking at the scatterplots, we see no difference in classification. There is also a similar predicted sector distribution to the original sectors. When comparing the heatmaps of the three largest sectors in the original and predicted, we only see a slight positive difference between the Information Technology sector and its corresponding predicted sector. The same is true for the Consumer Discretionary sector, however false for the Communication Services sector. To figure out why the computer chose to cluster the way it did we need further testing. Perhaps in the future, our predicted sectors will outperform the originals which we can test using machine learning to predict the returns. It can also be possible that our machine learning model was not fed enough data from the QQQ fund and we can run our analysis successfully with more data which requires more computing power. With more data fed into our model, maybe the correlation difference will be more significant and further predictions can be made. Despite all these unknown and unanswered questions, we are able to take away that our model was able to cluster differently than stocks in the QQQ, to decide if it is for better or for worse, further testing would need to be done. 
+                </p>
+            </div>
+
+            <br>
+            <h2>Acknowledgment</h2>
+            <div class='Acknowledgment'>
+                <p>I like to dedicate this portion to express my gratitude to all parties involved in helping with this research. Firstly, thank you New Jersey City University for allowing me to be involved in the Summer Stem Internship. I would also like to give thanks to my mentor Dr. Nan Wang for guiding me through this experience and Weikang Kong for developing the website for this research project. Last but not least, I would like to acknowledge the US Education Department Title III Part F HSI-STEM Grant # P031C160155 and US Education Department Title V DHSI Grant # P031S200124 for their generous grant offers. 
+                </p>
+            </div>
+
+            <br>
+            <h2>Reference</h2>
+            <div class='Reference'>
+                <ul>
+                    <li>[1] https://www.invesco.com/qqq-etf/en/about.html</li>
+                    <li>[2] https://www.invesco.com/us/financial-products/etfs/product-detail?ticker=QQQ</li>
+                    <li>[3]https://investor.vanguard.com/etf/vanguard-total-market-etfs?WT.srch=1&cmpgn=PS:RE&gclid=Cj0KCQjw0emHBhC1ARIsAL1QGNcSWRSJa3SP90bMOmZvZSi_F74rEVZ3naLJMCepS2lBZefEOhF2ItcaAtg9EALw_wcB&gclsrc=aw.ds
+</li><br>
+                    <li>[4]https://www.fool.com/investing/stock-market/market-sectors/information-technology/growth-tech-stocks/
+</li>
+                    <li>[5]https://jupyter.org/
+</li>
+                    <li>[6]https://numpy.org/
+</li>
+                    <li>[7]https://pandas.pydata.org/docs/
+</li>
+                    <li>[8]https://pypi.org/project/yfinance/
+</li>
+                    <li>[9] https://matplotlib.org/
+</li>
+                    <li>[10] https://seaborn.pydata.org/
+</li>
+                    <li>[11] https://plotly.com/
+</li>
+                    <li>[12] https://developer.mozilla.org/en-US/docs/Web/HTML
+</li>
+                    <li>[13] https://developer.mozilla.org/en-US/docs/Web/CSS
+</li>
+                    <li>[14] https://flask.palletsprojects.com/en/2.0.x/
+</li>
+                    <li>[15]https://towardsdatascience.com/k-means-clustering-algorithm-applications-evaluation-methods-and-drawbacks-aa03e644b48a
+</li>
+                    <li>[16]https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1</li>
+                    <li>[17] https://www.geeksforgeeks.org/mvc-design-pattern/</li>
+                </ul>
+            </div>
+
+            <br>
+            <h2>Supplementary Materials</h2>
+            <div class='sup'>
+                <ul>
+                    <li>https://github.com/Topusaha/Sector-Regrouping-for-Invesco-QQQ-ETF-based-on-K-Mean-Clustering-Algorithm</li>
+                    <ul>
+                        <p style='margin-left:-60px;margin-top:3px;margin-bottom:3px;'>Located inside the github repository are the following</p>
+                        <li>Notebook Code  </li>
+                        <li>Notebook Code HTML Format</li>
+                        <li>Website Code</li>
+                        <li>QQQ Holding Ticker List </li>
+                        <li>Powerpoint </li>
+                        <li>Research Paper </li>
+                    </ul>
+                </ul>
+            </div>
+
+
+        </div>
+
+
+        
+
+
+
+        <hr>
+        <div class='btm'>
+            <img class='bottom' src='static/images/njcuG.png' alt='njcuLogo'/>
+        </div>
+    </body>
+</html>

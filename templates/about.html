@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/yfcss.css')}}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+        <style>
+            
+            img:not(.btm):not(.header) {
+                display:fixed;
+                width:50%;
+                border:5px solid #175e54;
+                align:left;
+            }
+            
+            .right-text{
+                display: table-cell;
+                vertical-align:middle;
+                margin-right:100px;
+                font-family: "Lucida Console", "Courier New", Cursive;
+                font-size:20px;
+                line-height:26px;
+            }
+            .right-text:first-letter{
+				font-size:72px;
+				color:#175e54;
+            
+            .mainBody{
+                padding-bottom:1000px;
+            }
+            .left-picture{
+                margin-top:0px;
+            }
+
+            
+        </style>
+    
+    </head>
+    <body>
+        <div class='headerdiv' >
+        <a href='http://njcu.edu'>
+            <img class='header' alt='NJCU logo' src='static/images/njcuW.png'>
+        </a>
+        </div>
+        <div class='topnav'>
+            <a href='{{ url_for('intro')}}'>Introduction</a>
+            <a href='{{ url_for('index')}}'>Search</a>
+            <a href='{{ url_for('contact')}}'>Paper</a>
+            <a class='active' href='{{ url_for('about')}}'>About us</a>
+        </div>
+        <hr>
+
+        <h2 style='font-family: "Sofia", sans-serif; text-align: center; font-size:50px;'>About Us</h2>
+        <hr>
+        <br>
+        <br>
+        <div class='mainBody'>
+        <table style="width:90%;margin-left:70px;">
+            <tr>
+                <th style='width:30%;text-align:left;padding-left:10px;'>email:&emsp;&emsp;&emsp;tsaha@njcu.edu</th>
+                <td rowspan="3" style='text-align:left;'>
+                    <p class='right-text'>
+                        My name is Topu Saha and I am a undergraduate student at New Jersey City University studying computer science. As a high schooler, I was interested in solving problems and backend development. After a five minute overview of a computer science topic I would code solutions to problems even if they were small.  This led me to Increase my fundamental knowledge with coding challenges and puzzles. After some time, I was able to develop a sort of gaming mindset with programming. To me, programming is solving a problem with the tools in my arsenal. The weapons in my arsenal being the languages, and knowledge I have mastery in. With this research project, I thought it would be the perfect opportunity to overlap my skills in programming and knowledge in statistics to tackle a problem with data science and machine learning.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <th style='width:30%;text-align:left;padding-left:10px;'>Telephone:&emsp;201-889-4089</th>
+            </tr>
+            <tr>
+                <td style='width:30%;text-align:left;padding-left:10px;'><img class='left-picture' src='static/images/me2.JPG' alt='topu'/></td>
+            </tr>
+        </table>
+        
+        <HR align=left width=80% color=#175e54 SIZE=5>
+        <br>
+        <br>
+        <table style="width:90%;margin-left:70px;">
+            <tr>
+                <th style='width:30%;text-align:left;padding-left:10px;'>email:&emsp;&emsp;&emsp;kue849307660@gmail.com</th>
+                <td rowspan="3" style='text-align:left;'>
+                    <p class='right-text'>
+                        My name is Weikang Kong, a undergrate student in NJCU major in Computer Science. So far, I have been a junior student and learned a lot in NJCU. I am interested in coding itself more than hardware, besides, I am planning to make a independant game by myself, including everything that a director have to do. I am attentive to professors' words in class and take notes; after class, I participate in pratice of NJCU Esport LOL team and do a part-time job for insurrance. For this project, I learnt how to use Flask framework and something about web design and how to cooperate with my teammate, it is really a heuristic project for me.</p>
+                </td>
+            </tr>
+            <tr>
+                <th style='width:30%;text-align:left;padding-left:10px;'>Telephone:&emsp;201-890-9681</th>
+            </tr>
+            <tr>
+                <td style='width:30%;text-align:left;padding-left:10px;'><img class='left-picture' src='static/images/testPic.png' alt='topu'/></td>
+            </tr>
+        </table>
+        
+        <HR align=left width=80% color=#175e54 SIZE=5>
+        <br>
+        <br>
+        <table style="width:90%;margin-left:70px;padding-bottom:400px;font-size:16pt;">
+            <tr>
+                <th style='width:30%;text-align:left;padding-left:10px;'>email:&emsp;nwang1@njcu.edu; <br>&emsp;&emsp;&emsp;&emsp;nan.wang.ms@gmail.com</th>
+                <td rowspan="3" style='text-align:left;'>
+                    <p class='right-text'>
+                        Nan Wang, Ph.D. Associate Professor in Department of Computer Science, New Jersey City University
+                    </p>
+                    <div style='border:1px solid #175e54; padding:10px;'>
+                    <h3>General</h3>
+                    <ul>
+                        <li>Research Assistant, 2002-2005, Department of Computer Science and Engineering, Mississippi State University, Starkville, MS</li>
+                        <li>Research Associate, 2005-2008, Department of Computer Science and Engineering, Mississippi State University, Starkville, MS</li>
+                        <li>Research Associate, 2005-2008, Department of Computer Science and Engineering, Mississippi State University, Starkville, MS</li>
+                        <li>Tenured Associate Professor, 2014-2017, School of Computing, University of Southern Mississippi, Hattiesburg, M</li>
+                        <li>Tenure Track Associate Professor, 2017-Present, Department of Computer Science of New Jersey City University, Jersey City, NJ</li>
+                    
+                    </ul>
+
+                    <h3>Faculty Annual Evaluations</h3>
+                    <ul>
+                        <li>Faculty annual evaluations: consistently excellent in teaching, research and services since joined NJCU in 2017</li>
+                    </ul>
+
+                    <h3>Teaching</h3>
+                    <ul>
+                        <li>Received Consistently excellent in Student teaching evaluations</li>
+                        <li>Developed five new courses since 2017, one General Ed tier I and II courses, three high level courses for Cyber Security Program</li>
+                        <li>Taught eight different Computer Science core, elective and GE courses with full/overload enrollment</li>
+                        <li>Advised major student’s summer research</li>
+                        <li>Developed major, minor and transfer curriculums</li>
+                    </ul>
+
+                    <h3>Research</h3>
+                    <ul>
+                        <li>Published five peer reviewed journal papers since 2017</li>
+                        <li>Submitted two peer reviewed papers</li>
+                        <li>Preparing three papers</li>
+                        <li>Presented four oral/poster at conference</li>
+                        <li>Advised three student summary research projects</li>
+                        <li>Submitted two NSF research grant proposals since 2017</li>
+                    </ul>
+
+                    <h3>Service</h3>
+                    <ul>
+                        <li>Design and development new B.S. in Cyber Security Program (2017-2020)</li>
+                        <li>Revise Computer Science Major and Minor Curriculum (2017-2019)</li>
+                        <li>Revise the transfer student curriculum (2017-2019)</li>
+                        <li>Committee Chair for Faculty Search Committee for Computer Science (2018-2019)</li>
+                        <li>Committee Member for Faculty Search Committee for Chemistry Department (2018-2019)</li>
+                        <li>Serve as University Senator for Computer Science (2019-2020)</li>
+                        <li>Participate University Open house events (2018-2020)</li>
+                        <li>Serve as the advisor for international visiting scholar</li>
+                    </ul>
+
+                    <h3>Honor and Award</h3>
+                    <ul>
+                        <li><b>MCBIOS 2008, Second Place Talk Award</b></li>
+                        <li><b>Outstanding Doctoral-Level Research Award</b> in Institute for Neurocognitive Science and Technology <br>Research Forum at Mississippi State University, 2006</li>
+                        <li><b>2007-2008 fellowship for Female Graduate Student</b> in Department of Computer Science and Engineering at Mississippi State University.</li>
+                    </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th style='width:30%;text-align:left;padding-left:10px;'>Telephone:&emsp;484-934-2628</th>
+            </tr>
+            <tr>
+                <td style='width:30%;text-align:left;padding-left:10px; '>
+                <img class='left-picture' src='static/images/professor.jpg' alt='topu'/>
+                </td>
+            </tr>
+        </table>
+        
+        </div>
+        
+        <div class='btm'>
+            
+            <img class='btm' src='static/images/njcuG.png' alt='njcuLogo'/>
+        </div>
+        
+    </body>
+</html>
